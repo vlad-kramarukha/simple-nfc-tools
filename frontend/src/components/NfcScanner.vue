@@ -11,7 +11,7 @@ async function scan() {
 
 <template>
 	<div @click="scan" class="scanner"></div>
-	<div class="scanner-data">{{ scanData }}</div>
+	<div class="scanner-data" v-for="record in scanData.message.records">{{ record }}</div>
 </template>
 
 <style scoped>

@@ -5,7 +5,7 @@ import { ref } from 'vue'
 const scanData = ref()
 
 async function scan() {
-	scanData.value = JSON.stringify(await nfc()?.scan())
+	scanData.value = await nfc()?.scan()
 }
 </script>
 

@@ -1,3 +1,10 @@
+function composeNfcData(data: NDEFReadingEvent) {
+	const { message } = data
+	const { records } = message
+
+	return { message, records }
+}
+
 export default function nfc() {
 	if ('NDEFReader' in window) {
 		const instance = new NDEFReader()
@@ -8,7 +15,7 @@ export default function nfc() {
 
 				return new Promise((resolve, reject) => {
 					instance.onreadingerror = reject
-					instance.onreading = resolve
+					instance.onreading = (e) => resolve(composeNfcData(e))
 				})
 			}
 		}

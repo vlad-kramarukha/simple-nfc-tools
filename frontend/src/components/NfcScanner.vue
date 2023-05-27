@@ -1,20 +1,29 @@
 <script setup lang="ts">
 import nfc from '../services/nfc.ts'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const scanData = ref()
 
 async function scan() {
 	scanData.value = await nfc()?.scan()
 }
+
+function composeRecordData(record: NDEFRecord) {
+	if (record) {
+		const { recordType, encoding, data, mediaType, lang, id } = record
+		return { recordType, encoding, data, mediaType, lang, id }
+	}
+
+	return 'Нет данных :('
+}
+
+onMounted(scan)
 </script>
 
 <template>
-	<div @click="scan" class="scanner"></div>
-	<div class="scanner-data" v-for="record in scanData?.message?.records">
-		<template v-for="data in record">
-			<span>{{ data }}</span>
-		</template>
+	<div class="scanner"></div>
+	<div class="scanner-data" v-for="record in scanData?.records">
+		<span>{{ composeRecordData(record) }}</span>
 	</div>
 </template>
 

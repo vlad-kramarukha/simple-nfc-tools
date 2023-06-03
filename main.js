@@ -9,11 +9,10 @@ nfcButton.onclick = checkNfc
 
 function checkNfc() {
     const activeClass = hasNfc ? 'active' : 'disabled'
-    nfcButton.classList.add(activeClass)
 
     setTimeout(() => {
-        nfcButton.classList.remove(activeClass)
-    }, 2000)
+        nfcButton.classList.add(activeClass)
+    }, 1000)
 }
 
 function showDataModal(data) {

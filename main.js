@@ -37,7 +37,7 @@ function init() {
                 const { message } = event
 
                 for (record of message.records) {
-                    data[recordType] = record.data
+                    data[record.recordType] = record.data
                 }
 
                 showDataModal(JSON.stringify(data))

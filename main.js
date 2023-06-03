@@ -37,7 +37,10 @@ function init() {
                 const { message } = event
 
                 for (record of message.records) {
-                    data[record.recordType] = record.data
+                    if (record.recordType === 'text') {
+                        const decoder = new TextDecoder(record.encoding)
+                        data[record.recordType] = decoder.decode(record.data)
+                    }
                 }
 
                 showDataModal(JSON.stringify(data))

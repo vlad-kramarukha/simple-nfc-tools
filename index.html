@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
+    <title>Title</title>
+</head>
+<body>
+<div class="wrapper">
+    <div class="box header">
+        <h1>NFC</h1>
+    </div>
+    <div class="box main">
+        <div class="card-wrapper">
+            <div id="nfc" class="card nfc">
+                <span class="material-symbols-outlined">nfc</span>
+            </div>
+            <div id="scan" class="card scan">
+                <span class="material-symbols-outlined">sensors</span>
+            </div>
+            <div id="write" class="card write">
+                <span class="material-symbols-outlined">edit_document</span>
+            </div>
+            <div class="card empty"></div>
+        </div>
+    </div>
+    <div class="box footer">
+        <h2>v0.1</h2>
+    </div>
+</div>
+
+<div id="modal" class="data-modal hide">
+    <div class="data-modal-content">
+        <p id="text" class="data-modal-content-text"></p>
+        <div id="close" class="close-button">Закрыть</div>
+    </div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>

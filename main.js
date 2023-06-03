@@ -33,8 +33,14 @@ function init() {
             await ndef.scan()
 
             ndef.onreading = event => {
-                const { message, records } = event
-                showDataModal(message)
+                const data = {}
+                const { message } = event
+
+                for (record of message.records) {
+                    data[recordType] = record.data
+                }
+
+                showDataModal(JSON.stringify(data))
             }
         })
     }
